@@ -243,7 +243,7 @@ function findFile(dir) {
 
 function addPopupItem(signal, dialog, popup, item) {
   popup.addAction(item, function () {
-    Utils.trySpawnCommandLine("/usr/bin/pkexec --user root /usr/sbin/grub-reboot '" + item + "'", function (pid, status, data) {
+    Utils.trySpawnCommandLine("sudo /usr/bin/pkexec --user root /usr/sbin/grub-reboot '" + item + "'", function (pid, status, data) {
       if (status === 0) {
         let signalId = dialog.connect('closed',
           Lang.bind(dialog, function () {
